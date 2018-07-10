@@ -1,0 +1,14 @@
+<hr>
+<h1>Partial 2</h1>
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+
+{{ range first 1 $posts }}
+   {{ template "interior" . }}
+{{ end }}
+
+{{ define "interior" }}
+  <h6>Interior of partial 2</h6>
+  <h3>{{ .Title }}</h3>
+  {{ $pages := (where .Site.RegularPages "Section" "pages") }}    
+  {{ $pages }}
+{{end}}
